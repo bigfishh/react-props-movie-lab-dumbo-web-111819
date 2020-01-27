@@ -15,13 +15,15 @@ export default class CardBack extends Component {
   }
 
   render() {
+    let {title, IMDBRating, genres} = this.props
+    // console.log(this.props.IMDBRating)
     return (
       <div className="card-back">
-        <h3 className="title"></h3>
+        <h3 className="title">{title}</h3>
         <span />
-        { /* your rating element should go here -- you can invoke methods within JSX, à la: this.myMethod() */ }
+        {(IMDBRating===null)? <h4>No Rating Found</h4>:<img src={imgMapper[IMDBRating]} alt="" />}
         <span />
-        <h5 className="genres"></h5>
+        <h5 className="genres">{genres.join(", ")}</h5>
       </div>
     )
   }
